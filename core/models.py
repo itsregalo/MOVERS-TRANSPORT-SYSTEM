@@ -14,6 +14,7 @@ class VehicleCategory(models.Model):
     
 class Vehicle(models.Model):
     vehicle_no = models.CharField(max_length=255)
+    model = models.CharField(max_length=255)
     vehicle_category = models.ForeignKey(VehicleCategory, on_delete=DO_NOTHING)
 
     def __str__(self):
