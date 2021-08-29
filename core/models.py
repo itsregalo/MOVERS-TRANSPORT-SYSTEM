@@ -19,6 +19,7 @@ class Vehicle(models.Model):
     def __str__(self):
         return self.vehicle_no
 
+
 class IndividualMembership(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
@@ -37,6 +38,7 @@ class SmallScaleMembers(models.Model):
         return f"{self.first_name} {self.last_name}"
 
 class GroupMembership(models.Model):
+    reg_no = models.CharField(max_length=255)
     group_name = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
     members = models.ManyToManyField(SmallScaleMembers)
@@ -50,7 +52,10 @@ class Driver(models.Model):
     last_name = models.CharField(max_length=255)
     phone_no = models.CharField(max_length=13)
     vehicle = models.ForeignKey(Vehicle, on_delete=DO_NOTHING)
+    age = models.CharField(max_length=50)
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name}"
+        return f"{self.first_name} {self.last_name} - {self.vehicle.vehicle_no}"
+
+
 
