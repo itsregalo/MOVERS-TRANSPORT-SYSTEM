@@ -7,9 +7,6 @@ from imagekit.models import ImageSpecField
 from pilkit.processors import ResizeToFill
 from django.conf import settings
 
-
-
-
 User = settings.AUTH_USER_MODEL
 # Create your models here.
 
