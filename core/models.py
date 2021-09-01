@@ -58,6 +58,20 @@ class Driver(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name} - {self.vehicle.vehicle_no}"
 
+class Loader(models.Model):
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    phone_no = models.CharField(max_length=13)
+    vehicle = models.ForeignKey(Vehicle, on_delete=DO_NOTHING)
+    age = models.CharField(max_length=50)
+
+    class Meta:
+        verbose_name_plural = "Loaders"
+        
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} - {self.vehicle.vehicle_no}"
+
 class Offence(models.Model):
     driver = models.ForeignKey(Driver, on_delete=DO_NOTHING)
     vehicle_involved = models.ForeignKey(Vehicle, on_delete=DO_NOTHING)
