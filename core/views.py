@@ -4,7 +4,7 @@ from .models import *
 # Create your views here.
 
 def IndexView(request, *args, **kwargs):
-    return render(request, 'core/index.html')
+    return render(request, 'index.html')
 
 def Employers(request, *args, **kwargs):
     drivers = Driver.objects.all()
