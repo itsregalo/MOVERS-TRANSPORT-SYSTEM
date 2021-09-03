@@ -39,7 +39,7 @@
             <div class="hleft">
                 <a class="header-brand" href="index-2.html"><i class="fa fa-soccer-ball-o brand-logo"></i></a>
                 <div class="dropdown">
-                    <a href="javascript:void(0)" class="nav-link user_btn"><img class="avatar" src="assets/images/user.png" alt="" data-toggle="tooltip" data-placement="right" title="User Menu"/></a>
+                    <a href="javascript:void(0)" class="nav-link user_btn"><img class="avatar" src="{% static 'assets/images/user.png' %}" alt="" data-toggle="tooltip" data-placement="right" title="User Menu"/></a>
                     <a href="page-search.html" class="nav-link icon xs-hide"><i class="fa fa-search"></i></a>                    
                     <a href="app-calendar.html"  class="nav-link icon app_inbox xs-hide"><i class="fa fa-calendar"></i></a>
                     <a href="app-contact.html"  class="nav-link icon xs-hide"><i class="fa fa-id-card-o"></i></a>
@@ -203,15 +203,15 @@
                 <ul class="list-group list-unstyled">
                     <li class="list-group-item mb-2">
                         <p>Default Theme</p>
-                        <a href="index-2.html"><img src="assets/images/themes/default.png" class="img-fluid" /></a>
+                        <a href="index-2.html"><img src="{% static 'assets/images/themes/default.png' %}" class="img-fluid" /></a>
                     </li>
                     <li class="list-group-item mb-2">
                         <p>Night Mode Theme</p>
-                        <a href="project-dark/index.html"><img src="assets/images/themes/dark.png" class="img-fluid" /></a>
+                        <a href="project-dark/index.html"><img src="{% static 'assets/images/themes/dark.png' %}" class="img-fluid" /></a>
                     </li>                    
                     <li class="list-group-item mb-2">
                         <p>RTL Version</p>
-                        <a href="project-rtl/index.html"><img src="assets/images/themes/rtl.png" class="img-fluid" /></a>
+                        <a href="project-rtl/index.html"><img src="{% static 'assets/images/themes/rtl.png' %}" class="img-fluid" /></a>
                     </li>
                 </ul>
             </div>
@@ -221,7 +221,7 @@
     <div class="user_div">
         <h5 class="brand-name mb-4">Soccer<a href="javascript:void(0)" class="user_btn"><i class="icon-logout"></i></a></h5>
         <div class="card-body">
-            <a href="page-profile.html"><img class="card-profile-img" src="assets/images/sm/avatar1.jpg" alt=""></a>
+            <a href="page-profile.html"><img class="card-profile-img" src="{% static 'assets/images/sm/avatar1.jpg' %}" alt=""></a>
             <h6 class="mb-0">Peter Richards</h6>
             <span>peter.richard@gmail.com</span>
             <div class="d-flex align-items-baseline mt-3">
@@ -262,10 +262,10 @@
                         <h3>Developer Team</h3>
                         <h4>Hangouts</h4>
                         <ul class="list-unstyled team-info margin-0 p-t-5">                                            
-                            <li><img src="assets/images/xs/avatar1.jpg" alt="Avatar"></li>
-                            <li><img src="assets/images/xs/avatar2.jpg" alt="Avatar"></li>
-                            <li><img src="assets/images/xs/avatar3.jpg" alt="Avatar"></li>
-                            <li><img src="assets/images/xs/avatar4.jpg" alt="Avatar"></li>                                            
+                            <li><img src="{% static 'assets/images/xs/avatar1.jpg' %}" alt="Avatar"></li>
+                            <li><img src="{% static 'assets/images/xs/avatar2.jpg' %}" alt="Avatar"></li>
+                            <li><img src="{% static 'assets/images/xs/avatar3.jpg' %}" alt="Avatar"></li>
+                            <li><img src="{% static 'assets/images/xs/avatar4.jpg' %}" alt="Avatar"></li>                                            
                         </ul>
                     </div>
                 </li>
@@ -366,9 +366,12 @@
 <script src="{% static 'assets/bundles/counterup.bundle.js' %}"></script>
 <script src="{% static 'assets/bundles/knobjs.bundle.js' %}"></script>
 <script src="{% static 'assets/bundles/c3.bundle.js' %}"></script>
-
 <script src="{% static 'assets/js/core.js' %}"></script>
 <script src="{% static 'assets/js/page/project-index.js' %}"></script>
+<script src="{% include 'assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js' %}"></script>
+<script src="{% static 'assets/bundles/nestable.bundle.js' %}"></script>
+<script src="{% static 'assets/js/page/sortable-nestable.js' %}"></script>
+<script src="{% static 'assets/js/chart/knobjs.js' %}"></script>
 </body>
 
 <!-- soccer/project/index.html  07 Jan 2020 03:37:47 GMT -->
