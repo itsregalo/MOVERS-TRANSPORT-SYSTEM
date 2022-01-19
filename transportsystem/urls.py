@@ -20,3 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/admin/', include('core.admin-dash.urls', namespace='admin-dash')),
 ]
+
+admin.site.site_header='RETECH TRANSPORT SYSTEM'
+admin.site.site_title = 'RETECH TRANSPORT SYSTEM'

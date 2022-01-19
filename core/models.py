@@ -1,6 +1,6 @@
 from django.db import models
 from django.db.models.deletion import DO_NOTHING
-
+from accounts.models import User
 # Create your models here.
 
 
@@ -20,68 +20,14 @@ class Vehicle(models.Model):
     def __str__(self):
         return self.vehicle_no
 
-
-class IndividualMembership(models.Model):
-    first_name = models.CharField(max_length=255)
-    last_name = models.CharField(max_length=255)
-    phone_no = models.CharField(max_length=13)
-    location = models.TextField()
-
-    def __str__(self):
-        return f"{self.first_name} {self.last_name}"
-
-class SmallScaleMembers(models.Model):
-    first_name = models.CharField(max_length=255)
-    last_name = models.CharField(max_length=255)
-    phone_no = models.CharField(max_length=13)
-
-    def __str__(self):
-        return f"{self.first_name} {self.last_name}"
-
-class GroupMembership(models.Model):
-    reg_no = models.CharField(max_length=255)
-    group_name = models.CharField(max_length=255)
-    location = models.CharField(max_length=255)
-    members = models.ManyToManyField(SmallScaleMembers)
-
-    def __str__(self):
-        return self.group_name
-
-
 class Driver(models.Model):
-    first_name = models.CharField(max_length=255)
-    last_name = models.CharField(max_length=255)
-    phone_no = models.CharField(max_length=13)
-    vehicle = models.ForeignKey(Vehicle, on_delete=DO_NOTHING)
-    age = models.CharField(max_length=50)
+    user = models.ForeignKey(User, on_delete=DO_NOTHING)
+    license_no = models.CharField(max_length=254)
+    vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name} - {self.vehicle.vehicle_no}"
-
-class Loader(models.Model):
-    first_name = models.CharField(max_length=255)
-    last_name = models.CharField(max_length=255)
-    phone_no = models.CharField(max_length=13)
-    vehicle = models.ForeignKey(Vehicle, on_delete=DO_NOTHING)
-    age = models.CharField(max_length=50)
-
-    class Meta:
-        verbose_name_plural = "Loaders"
-        
-    def __str__(self):
-        return f"{self.first_name} {self.last_name} - {self.vehicle.vehicle_no}"
-
-class Offence(models.Model):
-    driver = models.ForeignKey(Driver, on_delete=DO_NOTHING)
-    vehicle_involved = models.ForeignKey(Vehicle, on_delete=DO_NOTHING)
-    offence_commited = models.CharField(max_length=255)
-    cost = models.DecimalField(max_digits=10, decimal_places=2)
-
-    class Meta:
-        verbose_name_plural = "Offences"
-
-    def __str__(self):
-        return self.driver.first_name
+        return self.user.username
+    
     
 
 
